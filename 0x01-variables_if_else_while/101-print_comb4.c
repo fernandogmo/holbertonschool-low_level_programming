@@ -21,7 +21,7 @@ int main(void)
 				putchar(huns);
 				putchar(tens);
 				putchar(ones++);
-				
+
 				if (huns != '7')
 				{
 					putchar(',');
