@@ -12,15 +12,13 @@ int main(void)
 
 	for (huns = '0'; huns <= '7'; huns++)
 	{
-		tens = huns + 1;
-		while (tens <= '8')
+		for (tens = huns + 1; tens <= '8'; tens++)
 		{
-			ones = tens + 1;
-			while (ones <= '9')
+			for (ones = tens + 1; ones <= '9'; ones++)
 			{
 				putchar(huns);
 				putchar(tens);
-				putchar(ones++);
+				putchar(ones);
 
 				if (huns != '7')
 				{
@@ -28,7 +26,6 @@ int main(void)
 					putchar(' ');
 				}
 			}
-			tens++;
 		}
 	}
 	putchar('\n');
