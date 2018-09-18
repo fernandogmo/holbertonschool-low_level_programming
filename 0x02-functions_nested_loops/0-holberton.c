@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "stdio.h"
 
 
 /**
@@ -8,14 +8,13 @@
  */
 int main(void)
 {
-	char h[10] = "Holberton";
+	char h[] = "Holberton\n";
 	int i;
 
 	for (i = 0; i <= 9; i++)
 	{
 		_putchar(h[i]);
 	}
-	_putchar('\n');
 
 	return (0);
 }
