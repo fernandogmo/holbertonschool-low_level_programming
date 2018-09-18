@@ -1,8 +1,6 @@
-#include <ctype.h>
-
 
 /**
- * _islower - wrapper function for ctype::islower
+ * _islower - checks if character is lowercase
  *
  * @c: input character tested
  *
@@ -10,5 +8,5 @@
  */
 int _islower(int c)
 {
-	return (islower(c) ? 1 : 0);
+	return ((c >= 'a' && c <= 'z') ? 1 : 0);
 }
