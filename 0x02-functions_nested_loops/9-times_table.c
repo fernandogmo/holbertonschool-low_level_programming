@@ -15,21 +15,18 @@ void times_table(void)
 		for (b = 0; b <= 9; b++)
 		{
 			ab = a * b;
-			tens = ab > 9 ? ab / 10 : -16;
-			ones = ab % 10;
 
+			tens = ab > 9 ? ab / 10 : -16;
 			_putchar(tens + '0'); /* -16 + '0' is a SPACE */
+
+			ones = ab % 10;
 			_putchar(ones + '0');
 
-			if (b < 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			else
-			{
-				_putchar('\n');
-			}
+			if (b == 9)
+				break;
+			_putchar(',');
+			_putchar(' ');
 		}
+		_putchar('\n');
 	}
 }
