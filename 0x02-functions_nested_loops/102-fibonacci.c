@@ -15,7 +15,7 @@ int main(void)
 
 	printf("%lu", i);
 
-	for (n = 0; n < 50; n++)
+	for (n = 1; n < 50; n++)
 	{
 		printf(", %lu", j);
 		tmp = i;
