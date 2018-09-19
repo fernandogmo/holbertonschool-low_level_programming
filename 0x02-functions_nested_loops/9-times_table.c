@@ -23,7 +23,7 @@ void times_table(void)
 			else
 			{
 				ab = a * b;
-				
+
 				tens = ab > 9 ? ab / 10 : -16;
 				_putchar(tens + '0'); /* -16 + '0' is a SPACE */
 
