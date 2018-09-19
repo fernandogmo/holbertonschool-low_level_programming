@@ -11,7 +11,7 @@ void print_times_table(int n)
 {
 	int a, b, ab, huns, tens, ones;
 
-	if (n <= 15 && n >= 0)
+	if (!(n > 15 || n < 0))
 	{
 		for (a = 0; a <= n; a++)
 		{
@@ -32,19 +32,12 @@ void print_times_table(int n)
 				else
 				{
 					ab = a * b;
-					if (ab > 9)
-					{
-						huns = (ab > 99) ? ab / 100 : -16;
-						tens = ab / 10;
-						tens = (tens > 9) ? (ab - (100 * huns)) / 10 : tens;
-					}
-					else
-					{
-						huns = tens =  -16;
-					}
+					huns = (ab > 99) ? ab / 100 : -16;
+					tens = (ab > 99) ? ab / 10  % 10 : (ab > 9) ? ab / 10 : -16;
+					ones = ab % 10;
+
 					_putchar(huns + '0'); /* -16 + '0' is a SPACE */
 					_putchar(tens + '0'); /* -16 + '0' is a SPACE */
-					ones = ab % 10;
 					_putchar(ones + '0');
 					if (b == n)
 						break;
