@@ -3,6 +3,8 @@
 /**
   * print_times_table - prints the n times table, starting at 0.
   *
+  * @n: input integer
+  *
   * Returns - void
   */
 void print_times_table(int n)
@@ -13,6 +15,11 @@ void print_times_table(int n)
 	{
 		for (a = 0; a <= n; a++)
 		{
+			if (n == 0)
+			{
+				_putchar('0');
+				break;
+			}
 			for (b = 0; b <= n; b++)
 			{
 				if (b == 0)
