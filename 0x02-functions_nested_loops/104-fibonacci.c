@@ -10,16 +10,16 @@ int main(void)
 {
 	int n;
 
-	long double i, j, tmp;
+	double i, j, tmp;
 
 	i = 1;
 	j = 2;
 
-	printf("%.0Lf", i);
+	printf("%.0f", i);
 
 	for (n = 1; n < 98; n++)
 	{
-		printf(", %.0Lf", j);
+		printf(", %.0f", j);
 		tmp = i;
 		i = j;
 		j += tmp;
