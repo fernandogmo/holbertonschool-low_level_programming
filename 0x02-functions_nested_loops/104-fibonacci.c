@@ -10,14 +10,14 @@ int main(void)
 {
 	int n;
 
-	double i, j, tmp;
+	float i, j, tmp;
 
 	i = 1;
 	j = 2;
 
 	printf("%.0f", i);
 
-	for (n = 1; n < 98; n++)
+	for (n = 0; n < 97; n++)
 	{
 		printf(", %.0f", j);
 		tmp = i;
