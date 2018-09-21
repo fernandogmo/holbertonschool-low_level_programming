@@ -1,6 +1,5 @@
 #include "holberton.h"
 
-
 /**
  * print_triangle - draws a (size x size)-triangle in stdout using '#', \n
  * @size: input integer for height and width of triangle
