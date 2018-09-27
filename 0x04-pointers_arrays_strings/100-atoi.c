@@ -1,11 +1,9 @@
-#include "holberton.h"
-
 /**
- * _atoi - takes a pointer to a string and converts it to
- *         an integer.
+ * _atoi - takes a pointer to a string and converts it to an integer.
+ *
  * @s: pointer to string.
  *
- * Return: signed int
+ * Return: signed int representation of string
  */
 int _atoi(char *s)
 {
