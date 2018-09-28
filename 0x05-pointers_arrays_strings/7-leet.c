@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * cap_string - capitalizes all words in a string.
+ * leet - encodes a string into 1337.
  * @a: pointer to a string
  * Return: pointer to modified string
  */
