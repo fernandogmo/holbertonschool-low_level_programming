@@ -8,7 +8,7 @@
 void print_diagsums(int *a, int size)
 {
 	int d1, d2, i, j;
-	int arr[size][size];
+	int arr[100][100]; /* hardcoded 100 bc C89 doesn't allow vla's */
 
 	for (i = 0; i < size; i++)
 	{
