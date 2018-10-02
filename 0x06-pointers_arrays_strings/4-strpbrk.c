@@ -16,9 +16,11 @@ char *_strpbrk(char *s, char *accept)
 	{
 		for (j = 0; accept[j] && s[i] != accept[j]; j++)
 			;
-		if (accept[j])
+		if (s[i] == accept[j])
 			break;
 	}
-
-	return (s[i] == accept[j] ? (s + i) : (char *)0);
+	if (s[i] == '\0')
+		return (0);
+	else
+		return (&s[i]);
 }
