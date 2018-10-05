@@ -13,14 +13,15 @@ int _strlen_recursion(char *s)
  * _strcpy_recursion - copies src string to dest.
  * @dest: pointer to string.
  * @src: pointer to string.
+ * @i: index where we last read src and write dest.
  * Return: pointer to dest.
  */
-char *_strcpy_recursion(char *dest, char *src)
+char *_strcpy_recursion(char *dest, char *src, int i)
 {
 	if (!*src)
-		return (dest);
+		return (dest - i);
 	*dest = *src;
-	return (_strcpy_recursion(++dest, ++src));
+	return (_strcpy_recursion(++dest, ++src, ++i));
 }
 
 /**
@@ -31,18 +32,17 @@ char *_strcpy_recursion(char *dest, char *src)
  */
 int is_palindrome(char *s)
 {
-	char tmp[42];
+	char tmp[9001];
 	char *p;
-	int ret, len = _strlen_recursion(s);
+	int len = _strlen_recursion(s);
 
 	if (len == 1 || len == 0)
 		return (1);
 	if (s[0] != s[len - 1])
 		return (0);
-	p = _strcpy_recursion(tmp, s);
+
+	p = _strcpy_recursion(tmp, s, 0);
 	p[len - 1] = '\0';
 
-	ret = is_palindrome(p + 1);
-
-	return (ret);
+	return (is_palindrome(p + 1));
 }
