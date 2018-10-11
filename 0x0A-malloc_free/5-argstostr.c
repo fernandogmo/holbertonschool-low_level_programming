@@ -18,11 +18,11 @@ int get_len(char *s)
 
 /**
  * argstostr - concatenates all the arguments of your program
- * @s1: integer number of arguments
- * @s2: pointer to array of strings
+ * @ac: integer number of arguments
+ * @av: pointer to array of strings
  *
- * Return: pointer to concatenated strings, or NULL if either
- *	   input is NULL or if malloc fails.
+ * Return: pointer to concatenated argument, separated by \n,
+ *	   or NULL if either input is NULL or if malloc fails.
  */
 char *argstostr(int ac, char **av)
 {
