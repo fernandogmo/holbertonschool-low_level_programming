@@ -21,7 +21,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (!bytes || !ret)
 		return (NULL);
 
-	return(_memset(ret, 0, bytes));
+	return (_memset(ret, 0, bytes));
 }
 
 
