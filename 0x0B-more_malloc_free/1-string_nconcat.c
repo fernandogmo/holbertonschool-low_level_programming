@@ -12,10 +12,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	int len1;
 	char *ret;
 
-	if (!s1)
-		s1 = "";
-	if (!s2)
-		s2 = "";
+	!s1 ? s1 = "" : continue;
+	!s2 ? s2 = "" : continue;
 
 	len1 = 0;
 	while (s1[len1])
