@@ -1,4 +1,5 @@
 #include <stdlib.h>
+void *_memset(void *s, int c, size_t n);
 
 /**
  * _calloc - allocates memory for an array of nmemb elements of
@@ -11,12 +12,33 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int bytes;
+	void *ret;
+	size_t bytes;
 
 	bytes = nmemb * size;
-	if (!bytes)
+	ret = malloc(bytes);
+
+	if (!bytes || !ret)
 		return (NULL);
 
-	return (malloc(bytes));
+	return(_memset(ret, 0, bytes));
+}
 
+
+/**
+ * _memset - fills the first n bytes of the memory area pointed
+ *	     to by s with the constant byte c
+ * @s: pointer to memory area
+ * @c: byte to fill s with
+ * @n: number of bytes to fill
+ * Return: pointer to the memory area s.
+ */
+void *_memset(void *s, int c, size_t n)
+{
+	char *ptr = s;
+
+	while (n--)
+		*ptr++ = c;
+
+	return (s);
 }
