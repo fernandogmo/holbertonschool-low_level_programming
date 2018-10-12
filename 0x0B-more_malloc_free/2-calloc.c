@@ -16,12 +16,14 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	size_t bytes;
 
 	bytes = nmemb * size;
-	ret = malloc(bytes);
-
-	if (!bytes || !ret)
+	if (!bytes)
 		return (NULL);
 
-	return (_memset(ret, 0, bytes));
+	ret = malloc(bytes);
+	if (ret)
+		return (_memset(ret, 0, bytes));
+
+	return (NULL);
 }
 
 
