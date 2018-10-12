@@ -13,7 +13,7 @@ void *_memset(void *s, int c, size_t n);
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *ret;
-	size_t bytes;
+	unsigned long bytes;
 
 	bytes = nmemb * size;
 	ret = malloc(bytes);
@@ -33,7 +33,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  * @n: number of bytes to fill
  * Return: pointer to the memory area s.
  */
-void *_memset(void *s, int c, size_t n)
+void *_memset(void *s, int c, unsigned long n)
 {
 	char *ptr = s;
 
