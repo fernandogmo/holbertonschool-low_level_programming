@@ -17,7 +17,18 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (ret)
 	{
 		ret->name = _strdup(name);
+		if (!(ret->name))
+		{
+			free(ret);
+			return (NULL);
+		}
 		ret->owner = _strdup(owner);
+		if (!(ret->owner))
+		{
+			free(ret->name);
+			free(ret);
+			return (NULL);
+		}
 		ret->age = age;
 	}
 	return (ret);
@@ -29,7 +40,7 @@ dog_t *new_dog(char *name, float age, char *owner)
  *	     string given as a parameter.
  * @str: pointer to string
  *
- * Return: pointer to dupicate of str, or NULL if str is NULL
+ * Return: pointer to duplicate of str, or NULL if str is NULL
  *	   or if malloc fails.
  */
 char *_strdup(char *str)
