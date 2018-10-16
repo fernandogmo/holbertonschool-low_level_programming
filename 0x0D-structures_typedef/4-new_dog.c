@@ -45,23 +45,18 @@ dog_t *new_dog(char *name, float age, char *owner)
  */
 char *_strdup(char *str)
 {
-	unsigned int size;
-	char *p, *s;
+	int len = 0;
+	char *ret = NULL;
 
-	if (!str)
-		return ((char *)0);
-
-	p = str;
-	while (*p++)
-		size++;
-
-	s = (char *)malloc(size + 1);
-	if (s)
+	if (str)
 	{
-		p = s;
-		while (*str)
-			*p++ = *str++;
-		*p = '\0';
+		while (str[len])
+			len++;
+
+		ret = malloc(sizeof(char) * (len + 1));
+		if (ret)
+			for ( ; len >= 0; len--)
+				ret[len] = str[len];
 	}
-	return (s);
+	return (ret);
 }
