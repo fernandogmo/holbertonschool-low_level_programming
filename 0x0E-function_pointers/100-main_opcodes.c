@@ -11,6 +11,7 @@
 int main(int argc, char **argv)
 {
 	int i, bytes;
+	char *byte_ptr;
 
 	if (argc != 2)
 	{
@@ -25,9 +26,13 @@ int main(int argc, char **argv)
 		exit(2);
 	}
 
+	byte_ptr = (char *)main;
 	for (i = 0; i < bytes; i++)
-		printf("%02hhx ", *((char *)main + i));
-
+	{
+		printf("%02hhx", byte_ptr[i]);
+		if (i < bytes - 1)
+			putchar(' ');
+	}
 	printf("\n");
 
 	return (0);
