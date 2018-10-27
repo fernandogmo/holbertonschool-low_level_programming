@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
-  * 100-first - prints before the main function runs using a
-  *		GCC constructor attribute
+  * la_liebre_perdedora - prints before the main function runs using a
+  *			  GCC constructor attribute
   */
 void la_liebre_perdedora(void) __attribute__((constructor));
 void la_liebre_perdedora(void)
