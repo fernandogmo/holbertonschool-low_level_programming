@@ -6,7 +6,7 @@
   * @n: int value for new node
   * Return: pointer to the newly added node
   */
-listint_t add_nodeint(listint_t **head, const int n)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new = NULL;
 
