@@ -13,31 +13,27 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int i = 0;
 
 	new = malloc(sizeof(*new));
-	if (new)
+	if (new && idx == 0)
 	{
 		new->n = n;
-		if (idx == 0)
+		new->next = *head;
+		*head = new;
+	}
+	else if (new)
+	{
+		while (ptr && (++i != idx))
+			ptr = ptr->next;
+
+		if (ptr) /* Insert if position found */
 		{
-			new->next = *head;
-			*head = new;
+			new->n = n;
+			new->next = ptr->next;
+			ptr->next = new;
 		}
-		else
+		else /* Return NULL if idx too large. */
 		{
-			while (ptr && (i != idx - 1))
-			{
-				ptr = ptr->next;
-				i++;
-			}
-			if (ptr)
-			{
-				new->next = ptr->next;
-				ptr->next = new;
-			}
-			else
-			{
-				free(new);
-				new = NULL;
-			}
+			free(new);
+			new = NULL;
 		}
 	}
 	return (new);
