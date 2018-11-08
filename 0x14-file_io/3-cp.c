@@ -2,12 +2,13 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 void exit_97(void);
-void exit_98(void);
-void exit_99(void);
-void exit_100(void);
+void exit_98(char*);
+void exit_99(char*);
+void exit_100(int);
 
 
 /**
