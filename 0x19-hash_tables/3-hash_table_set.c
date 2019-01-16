@@ -4,6 +4,7 @@
 
 /**
  * hash_table_set - adds an element to the hash table
+ * @ht: pointer to target hash table
  * @key: non-empty const string for key
  * @value: const string for value
  * Return: 1 if it succeeded, 0 otherwise
