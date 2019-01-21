@@ -11,23 +11,25 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *node = NULL, *head = NULL;
+	hash_node_t *new = NULL;
+	unsigned long int idx, size;
 
-	if (!ht || !key || !value || *key == '\0')
+	if (!ht || !key || !*key || !value)
 		return (0);
-	node = malloc(sizeof(*node));
-	if (!node)
-		return (0);
-	node->key   = strdup(key);
-	node->value = strdup(value);
 
-	head = ht->array[key_index((unsigned char *)key, ht->size)];
-	if (head)
+	size = ht->size;
+	idx = key_index((const unsigned char *)key, size);
+	if (ht->array[idx] && strcmp(ht->array[idx]->key, key) == 0)
 	{
-		node->next = head;
-		head = node;
+		ht->array[idx]->value = strdup(value);
+		return (1);
 	}
-	else
-		head = node;
+	new = malloc(sizeof(hash_node_t));
+	if (!new)
+		return (0);
+	new->key = strdup(key);
+	new->value = strdup(value);
+	new->next = ht->array[idx];
+	ht->array[idx] = new;
 	return (1);
 }
