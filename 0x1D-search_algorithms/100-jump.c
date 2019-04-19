@@ -2,7 +2,7 @@
 #include <math.h>
 
 #define MIN(a, b) (a > b ? b : a)
-#define CHECK(i, v) (printf("Value checked array[%lu] = [%d]\n", i, v))
+#define PRINT(i, v) (printf("Value checked array[%lu] = [%d]\n", i, v))
 
 /**
  * jump_search - searches for a value in an array of ints
@@ -18,19 +18,10 @@ int jump_search(int *array, size_t size, int value)
 
 	if (array == NULL)
 		return (-1);
-
-	for (; j < size && array[j] < value; i = j, j += step)
-		CHECK(j, array[j]);
-
+	while (j < size && array[j] < value)
+		PRINT(j, array[j]), i = j, j += step;
 	printf("Value found between indexes [%lu] and [%lu]\n", i, j);
-	for (; array[i] < value; i++)
-	{
-		CHECK(i, array[i]);
-		if (i == MIN(j, size - 1))
-			return (-1);
-	}
-	CHECK(i, array[i]);
-	if (array[i] == value)
-		return (i);
-	return (-1);
+	while (i <= MIN(j, size - 1) && array[i] <= value)
+		PRINT(i, array[i]), i++;
+	return (array[--i] == value ? (int)i : -1);
 }
