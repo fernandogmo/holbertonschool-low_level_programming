@@ -1,8 +1,8 @@
 #include "search_algos.h"
 #include <math.h>
 
-inline size_t min(size_t a, size_t b) { return a > b ? b : a; }
-inline void check(size_t i, int v) { printf("Value checked array[%lu] = [%d]\n", i, v); }
+#define MIN(a, b) (a > b ? b : a)
+#define CHECK(i, v) (printf("Value checked array[%lu] = [%d]\n", i, v))
 
 /**
  * jump_search - searches for a value in an array of ints
@@ -14,22 +14,22 @@ inline void check(size_t i, int v) { printf("Value checked array[%lu] = [%d]\n",
  */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t i = 0, j = 0, step = (size_t)floor(sqrt(size));
+	size_t i = 0, j = 0, step = sqrt(size);
 
 	if (array == NULL)
 		return (-1);
 
 	for (; j < size && array[j] < value; i = j, j += step)
-		check(j, array[j]);
+		CHECK(j, array[j]);
 
 	printf("Value found between indexes [%lu] and [%lu]\n", i, j);
 	for (; array[i] < value; i++)
 	{
-		check(i, array[i]);
-		if (i == min(j, size - 1))
+		CHECK(i, array[i]);
+		if (i == MIN(j, size - 1))
 			return (-1);
 	}
-	check(i, array[i]);
+	CHECK(i, array[i]);
 	if (array[i] == value)
 		return (i);
 	return (-1);
